@@ -23,9 +23,24 @@ Query the api for model's metadata:
 curl -XGET http://localhost:5000/model/fashion_models/metadata
 ```
 
-To test a prediction, use `client.py`
+To test a prediction, use `sample_images.py` to generate some test images for predictions using the fashion mnist test set:
+```
+python sample_images.py --num 10
 
-The predict endpoint is still WIP.
+```
+
+It will create a local dir of `testimgs`
+
+
+To make a prediction, you can use curl to POST the image to the API endpoint:
+```
+ curl -F 'data=@/testimgs/test_0_label_9.png' http://localhost:5000/models/fashion_models/predict
+```
+
+An example response would be:
+```
+The model thought this was a Ankle boot (class 9), and it was actually a Ankle boot (class 9)
+```
 
 
 ### Running TFX in docker
