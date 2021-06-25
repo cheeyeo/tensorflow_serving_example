@@ -139,3 +139,5 @@ cython_debug/
 
 # custom ignores
 fashion_models
+testimgs
+infer
