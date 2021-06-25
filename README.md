@@ -33,8 +33,15 @@ It will create a local dir of `testimgs`
 
 
 To make a prediction, you can use curl to POST the image to the API endpoint:
+
+For REST endpoint:
 ```
- curl -F 'data=@/testimgs/test_0_label_9.png' http://localhost:5000/models/fashion_models/predict
+curl -XPOST -F 'data=@./testimgs/test_0_label_9.png' http://localhost:5000/models/fashion_models/predict
+```
+
+For GRPC endpoint:
+```
+curl -XPOST -F 'data=@./testimgs/test_0_label_9.png' http://localhost:5000/models/fashion_models/predict_grpc
 ```
 
 An example response would be:
@@ -57,8 +64,13 @@ To run locally using docker:
 ```
 
 ### References
+
+[Signatures on SavedModel](https://www.tensorflow.org/api_docs/python/tf/saved_model/save)
+
 [Simple REST example](https://www.tensorflow.org/tfx/tutorials/serving/rest_simple)
 
 [TFX Docker](https://www.tensorflow.org/tfx/tutorials/serving/rest_simple)
 
 [Client API](https://www.tensorflow.org/tfx/serving/api_rest)
+
+[Image classification tutorial](https://towardsdatascience.com/image-classification-on-tensorflow-serving-with-grpc-or-rest-call-for-inference-fd3216ebd4f3)

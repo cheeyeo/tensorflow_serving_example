@@ -27,7 +27,7 @@ if __name__ == "__main__":
     print("Test images shape: {}, type: {}".format(test_images.shape, test_images.dtype))
 
     model = Sequential([
-        Conv2D(filters=8, kernel_size=3, strides=2, activation="relu",input_shape=(28, 28, 1), name="conv2d_1"),
+        Conv2D(filters=8, kernel_size=3, strides=2, activation="relu", input_shape=(28, 28, 1), name="conv2d_1"),
         Flatten(),
         Dense(10, name="fc")
     ])
